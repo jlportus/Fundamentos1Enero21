@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-public class Carrito {
+public class Carrito<T extends Preciable & Descriptible> {
 
-	private Collection<Producto> listaCarrito;
+	private Collection<T> listaCarrito;
 
-	public Collection<Producto> getListaCarrito() {
+	public Collection<T> getListaCarrito() {
 		return listaCarrito;
 	}
 
@@ -16,13 +16,13 @@ public class Carrito {
 		this.listaCarrito = new ArrayList<>();
 	}
 
-	public boolean addProducto(Producto producto) {
+	public boolean addProducto(T producto) {
 		return listaCarrito.add(producto);
 	}
 
 	public float getValorCarrito() {
 		float valorTotalCarritoCarrito = 0f;
-		for (Producto producto : listaCarrito) {
+		for (T producto : listaCarrito) {
 			valorTotalCarritoCarrito += producto.getPrecio();
 		}
 		return valorTotalCarritoCarrito;
@@ -30,7 +30,7 @@ public class Carrito {
 
 	public String getInformeCarrito() {
 		String informeCarrito = "";
-		for (Producto producto : listaCarrito) {
+		for (T producto : listaCarrito) {
 			informeCarrito += producto.toString() + "\n";
 		}
 		informeCarrito += "\tEl valor TOTAL del carrito es de : " + getValorCarrito() + " €";

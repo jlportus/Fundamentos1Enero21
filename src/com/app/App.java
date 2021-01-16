@@ -3,6 +3,7 @@ package com.app;
 import com.acing.Carrito;
 import com.acing.Marca;
 import com.acing.Producto;
+import com.acing.ProductoExterno;
 
 public class App {
 
@@ -36,7 +37,11 @@ public class App {
 		System.out.println("\nEjercicio 5.3");
 		carroCompra.addProducto(dentifrico);
 		System.out.println(carroCompra.getInformeCarrito());
-		
+				
+		// ejercicio 6
+		System.out.println("\nEjercicio 6");
+		carroCompra.addProducto(new ProductoExterno("Crime & Punishment", 0.46));
+		System.out.println(carroCompra.getInformeCarrito());
 	}
 
 }
