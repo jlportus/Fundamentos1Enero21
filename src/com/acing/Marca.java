@@ -15,4 +15,9 @@ public class Marca {
 	public Marca() {
 		this("Sin marca");
 	}
+	
+	@Override
+	public String toString() {
+		return getNombreMarca();
+	}
 }

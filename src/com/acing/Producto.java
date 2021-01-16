@@ -23,7 +23,7 @@ public class Producto {
 	}
 
 	public Producto() {
-		this( "Sin descripcion", -1);
+		this("Sin descripcion", -1);
 	}
 
 	@Override
