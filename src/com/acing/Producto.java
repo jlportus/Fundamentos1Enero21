@@ -1,6 +1,6 @@
 package com.acing;
 
-public class Producto implements Descriptible, Preciable {
+public class Producto implements Descriptible, Preciable, Identificable {
 
 	private String descripcionProducto;
 	private int id;
@@ -41,6 +41,11 @@ public class Producto implements Descriptible, Preciable {
 	public String getDescripcion() {
 
 		return descripcionProducto;
+	}
+
+	@Override
+	public int getId() {
+		return this.id;
 	}
 
 }
