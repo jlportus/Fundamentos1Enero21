@@ -26,7 +26,17 @@ public class App {
 		carroCompra.addProducto(refresco);
 		carroCompra.addProducto(leche);
 		carroCompra.getListaCarrito().forEach(System.out::println);
-
+		
+		// ejercicio 5
+		System.out.println("\nEjercicio 5");
+		System.out.println("\nEjercicio 5.1");
+		System.out.println(carroCompra.getValorCarrito());
+		System.out.println("\nEjercicio 5.2");
+		System.out.println(carroCompra.getInformeCarrito());
+		System.out.println("\nEjercicio 5.3");
+		carroCompra.addProducto(dentifrico);
+		System.out.println(carroCompra.getInformeCarrito());
+		
 	}
 
 }

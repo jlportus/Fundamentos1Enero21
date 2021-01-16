@@ -1,6 +1,6 @@
 package com.acing;
 
-public class Producto {
+public class Producto implements Descriptible, Preciable {
 
 	private String descripcionProducto;
 	private int id;
@@ -28,7 +28,19 @@ public class Producto {
 
 	@Override
 	public String toString() {
-		return id + "\t" + descripcionProducto + " - " + marca + "\t" + precio;
+		return id + "\t" + getDescripcion() + " - " + marca + "\t" + getPrecio();
+	}
+
+	@Override
+	public float getPrecio() {
+
+		return precio;
+	}
+
+	@Override
+	public String getDescripcion() {
+
+		return descripcionProducto;
 	}
 
 }
