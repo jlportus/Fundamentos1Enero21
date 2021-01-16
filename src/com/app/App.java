@@ -14,6 +14,8 @@ public class App {
 
 	private final static Collection<Producto> CARRO_FINAL = Arrays.asList(refresco, leche, dentifrico, agua);
 
+	static int[] almacen = new int[App.getMaxId(CARRO_FINAL)];
+	
 	public static void main(String[] args) {
 
 		// ejercicio 2
@@ -49,7 +51,7 @@ public class App {
 
 		// ejercicio 8
 		System.out.println("\nEjercicio 8");
-		int[] almacen = new int[App.getMaxId(CARRO_FINAL)];
+		
 		System.out.println("Número de productos del almacen: " + almacen.length);
 		// añado existencias
 		añadirExistencias(almacen, 1, 8);
@@ -58,6 +60,10 @@ public class App {
 		añadirExistencias(almacen, 8, 1);
 		System.out.println("Cantidad de cada producto del almacen:\n" + Arrays.toString(almacen));
 
+		// ejercicio 9
+		System.out.println("\nEjercicio 9");
+		App.addToCarrito(dentifrico);
+		App.addToCarrito(refresco);
 	}
 
 	private static <T extends Identificable> int getMaxId(Collection<T> coleccion) {
@@ -72,5 +78,20 @@ public class App {
 
 	private static void añadirExistencias(int[] almacen, int id, int cantidad) {
 		almacen[id - 1] = cantidad;
+	}
+
+	private static <T extends Identificable & Descriptible & Preciable> void addToCarrito(T producto) {
+		try { //esto no tengo muy claro que sea asi
+			if (almacen[producto.getId() - 1] == 0) {
+				System.out.println("No hay existencias de [" + producto.getDescripcion() + "]");
+			} else {
+				almacen[producto.getId() - 1] -= 1;
+				System.out.println("Quedan " + almacen[producto.getId() - 1] + " unidades de [" + producto.getDescripcion() + "]");
+			}
+			
+		} catch (Exception e) {
+			System.err.println("Ocurrió un error al añadir [" + producto.getDescripcion() + "]");
+		}
+		
 	}
 }
