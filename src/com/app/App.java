@@ -12,8 +12,7 @@ public class App {
 	static Producto dentifrico = new Producto(5, "Dentífrico", new Marca("Oral B"), 1.99f);
 	static Producto agua = new Producto(8, "6 botellas 1,5 litro", new Marca("Font Vella"), 2.99f);
 
-	private final Collection<Producto> CARRO_FINAL = Arrays.asList(
-			refresco, leche, dentifrico, agua);
+	private final static Collection<Producto> CARRO_FINAL = Arrays.asList(refresco, leche, dentifrico, agua);
 
 	public static void main(String[] args) {
 
@@ -44,11 +43,34 @@ public class App {
 		System.out.println("\nEjercicio 6");
 		carroCompra.addProducto(new ProductoExterno("Crime & Punishment", 0.46));
 		System.out.println(carroCompra.getInformeCarrito());
-		
+
 		// ejercicio 7
 		System.out.println("\nEjercicio 7\nAñadido antes del main la collection de productos");
 
-				
+		// ejercicio 8
+		System.out.println("\nEjercicio 8");
+		int[] almacen = new int[App.getMaxId(CARRO_FINAL)];
+		System.out.println("Número de productos del almacen: " + almacen.length);
+		// añado existencias
+		añadirExistencias(almacen, 1, 8);
+		añadirExistencias(almacen, 2, 3);
+		añadirExistencias(almacen, 5, 0);
+		añadirExistencias(almacen, 8, 1);
+		System.out.println("Cantidad de cada producto del almacen:\n" + Arrays.toString(almacen));
+
 	}
 
+	private static <T extends Identificable> int getMaxId(Collection<T> coleccion) {
+		int idMax = 0;
+		for (T elemento : coleccion) {
+			if (elemento.getId() > idMax) {
+				idMax = elemento.getId();
+			}
+		}
+		return idMax;
+	}
+
+	private static void añadirExistencias(int[] almacen, int id, int cantidad) {
+		almacen[id - 1] = cantidad;
+	}
 }

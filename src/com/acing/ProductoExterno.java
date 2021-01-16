@@ -2,8 +2,10 @@ package com.acing;
 
 import com.examen.Product3rdParty;
 
-public class ProductoExterno extends Product3rdParty implements Descriptible, Preciable{
+public class ProductoExterno extends Product3rdParty implements Descriptible, Preciable, Identificable{
 
+	int id;
+	
 	public ProductoExterno(String description, double price) {
 		super(description, price);
 		
@@ -21,5 +23,10 @@ public class ProductoExterno extends Product3rdParty implements Descriptible, Pr
 	
 	public String toString() {
 		return "Sin ID" + "\t" + getDescripcion() + " - " + "Sin Marca" + "\t" + getPrecio();
+	}
+
+	@Override
+	public int getId() {
+		return id;
 	}
 }
