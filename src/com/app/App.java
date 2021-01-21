@@ -64,6 +64,8 @@ public class App {
 		System.out.println("\nEjercicio 9");
 		App.addToCarrito(dentifrico);
 		App.addToCarrito(refresco);
+		
+		//añadir comentarios
 	}
 
 	private static <T extends Identificable> int getMaxId(Collection<T> coleccion) {
